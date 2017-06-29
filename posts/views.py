@@ -12,7 +12,7 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
     def get_permissions(self):
-        if self.request.method in permissions.SAFEMETHODS:
+        if self.request.method in permissions.SAFE_METHODS:
             return (permissions.AllowAny(),)
         return (permissions.IsAuthenticated(), IsAuthorOfPost(),)
 
